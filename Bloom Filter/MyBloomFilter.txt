@@ -1,0 +1,18 @@
+Here, I use the Java Hash Code function:
+s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1] % length
+
+and then I reverse it and use a different prime number:
+s[n-1]*29^(n-1) + s[n-2]*29^(n-2) + ... + s[0] % length
+
+This creates two simple but relatively distinct hash functions.
+
+Because the vector needs to store chars, I just modify each bit within the char.
+When the user inputs a length of 10, the bloomfilter is actually effectively length 80 since a char is 8 bits.
+I calculate the hashes and then flip the individual bits of characters.
+For example, if I want to flip bit 27, I go to the 3rd char and flip the 4th bit.
+
+To determine if the string is in the vector:
+I calculate the hash values and check if the bit is a 1 in the vector.
+So if I want to check hash 13, I just go to 2nd character and check the 6th bit. 
+
+Outputting the bloom filter, I print out the characters bit by bit.

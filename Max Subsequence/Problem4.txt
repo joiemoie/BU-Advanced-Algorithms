@@ -1,0 +1,25 @@
+Full credit for the algorithm: 
+https://en.wikipedia.org/wiki/Longest_common_subsequence_problem#Solution_for_two_sequences
+
+Creation of the int ** c array:
+
+int ** c is a 2d array containing the length of the longest sequence in c[m][n], where
+ 
+m is the length of s1 and n is the length of s2. The other values in the array c[i][j]
+
+contain the longest common sequence up from 0...i and 0...j for s1 and s2.
+Suppose that the 2d array starts at the top left from 0,0 to the bottom right at m,n.
+c[i][j] must be the value of the up left value + 1 whenever there is a match between i and j.
+However, if there is no match, it takes the value of either the left or up neighbor, depending
+on which one is larger.
+
+Creation runtime: O(m*n) because you fill up each value in a m*n size array, and each fill
+takes constant time.
+
+Backtracking:
+Once the array is created, you start at c[m][n] and go backwards, either diagonally if there is a match,
+or left or up if there is no match. Every time you find a character match, you prepend it to the 
+longest common subsequence until you get back to 0,0. 
+Backtracking runtime: O(m) or O(n) depending on which one is larger.
+
+Overall runtime: O(m*n)

@@ -1,0 +1,40 @@
+fourA(): Reads each string. Checks if the first character is a 'U' (otherwise moves to the next string).
+Checks if the next 8 characters are numbers (otherwise moves on).
+Checks if the last character is not a number.
+
+Runtime: O(N)
+Best case, you only check the first character of (N / length of string) number of strings.
+That is still O(N).
+Worst case, you read through each character aka O(N).
+
+
+ANSWER: 60257
+
+
+fourB(): This algorithm stores the dictionary into a trie.
+It stores the potential words inside of a vector as nodes from the trie.
+Each node has a value called "isWord" indicating a complete word.
+On each character, if runs through the potential words and checks if each node is a word.
+If the node is word, the total is increased.
+When the addition of a character does not exist along that path in the trie, that potential word is removed.
+
+Runtime: 
+Creating the trie: O(N_dictionary*height_of_trie)
+
+for each character : (N characters)
+Updating each potential word: O(average number of potential words)
+
+
+Runtime: Since the big data file is larger, O(N*average number of potential words) or O(N)
+ANSWER: 469159322
+
+
+fourC():This algorithm assumes that each character is the middle of a palindromic sequence.
+Then it checks all the characters surrounding it to see if the characters mirrors each other.
+A running value for the longest palindrome is compared and updated, along with the index position.
+
+Runtime: O(N^2): Copying the data into the heap takes O(N) time.
+For each character (N characters), you search around the character until the end of the data (O(N)).
+Therefore, O(N * N characters) = O(N^2).
+
+ANSWER:  BRpmpRB  
